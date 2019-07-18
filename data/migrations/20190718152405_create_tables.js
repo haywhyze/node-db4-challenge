@@ -21,11 +21,15 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('recipes');
+        .inTable('recipes')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
       tbl.integer('ingredient_id')
         .unsigned()
         .references('id')
-        .inTable('ingredients');
+        .inTable('ingredients')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
     })
 };
 
